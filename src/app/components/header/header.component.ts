@@ -6,7 +6,7 @@ import { TabMenuModule } from 'primeng/tabmenu'
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [TabMenuModule],
+  imports: [TabMenuModule, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -15,7 +15,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [
-      { label: 'Temperature', icon: 'pi pi-chart-line', route: 'temperature-chart'}
+      { label: 'Temperature', icon: 'pi pi-chart-line', route: 'temperature-chart'},
+      { label: 'CO2', icon: 'pi pi-chart-line', route: 'co2-chart'},
+      { label: 'Methane', icon: 'pi pi-chart-line', route: 'methane-chart'},
+      { label: 'NO2', icon: 'pi pi-chart-line', route: ''},
+      { label: 'Arctic ice', icon: 'pi pi-chart-line', route: ''}
     ]
   }
 }

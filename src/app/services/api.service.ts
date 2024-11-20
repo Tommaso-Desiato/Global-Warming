@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
+  
 
   constructor( private http: HttpClient) { }
 
@@ -14,4 +15,12 @@ export class ApiService {
   getTemperature(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/temperature-api`);
   };
+
+  getCo2(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/co2-api`);
+  };
+
+  getMethane(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/methane-api`)
+  }
 }

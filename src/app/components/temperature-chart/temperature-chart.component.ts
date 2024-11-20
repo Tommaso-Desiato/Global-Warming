@@ -31,7 +31,7 @@ export class TemperatureChartComponent implements OnInit {
         data.push(res.result[i].land);
         data2.push(res.result[i].station);
       }
-      console.log(xAxisData);
+      
       this.options = {
         legend: {
           data: ['Land', 'Station'],
