@@ -44,7 +44,7 @@ export class MethaneChartComponent implements OnInit{
       yAxis: {},
       series: [
         {
-          name: 'Cycles',
+          name: 'Average',
           type: 'line',
           data: data,
           animationDelay: idx => idx * 10,

@@ -18,8 +18,8 @@ export class HeaderComponent implements OnInit {
       { label: 'Temperature', icon: 'pi pi-chart-line', route: 'temperature-chart'},
       { label: 'CO2', icon: 'pi pi-chart-line', route: 'co2-chart'},
       { label: 'Methane', icon: 'pi pi-chart-line', route: 'methane-chart'},
-      { label: 'NO2', icon: 'pi pi-chart-line', route: ''},
-      { label: 'Arctic ice', icon: 'pi pi-chart-line', route: ''}
+      { label: 'NO2', icon: 'pi pi-chart-line', route: 'no2-chart'},
+      { label: 'Arctic ice', icon: 'pi pi-chart-line', route: 'arctic-chart'}
     ]
   }
 }

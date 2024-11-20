@@ -5,35 +5,35 @@ import { NgxEchartsDirective, provideEcharts} from "ngx-echarts";
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-co2-chart',
+  selector: 'app-no2-chart',
   standalone: true,
   imports: [CommonModule, NgxEchartsDirective],
-  templateUrl: './co2-chart.component.html',
-  styleUrl: './co2-chart.component.css',
+  templateUrl: './no2-chart.component.html',
+  styleUrl: './no2-chart.component.css',
   providers: [
     provideEcharts(),
   ]
 })
-export class Co2ChartComponent implements OnInit{
+export class No2ChartComponent implements OnInit{
   options!: EChartsOption;
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService.getCo2().subscribe( res => {
+    this.apiService.getNo2().subscribe( res => {
       const xAxisData = [];
       const data = [];
 
-      for (let i = 0; i < res.co2.length; i++) {
-        xAxisData.push(res.co2[i].year);
-        data.push(res.co2[i].cycle);
+      for (let i = 0; i < res.nitrous.length; i++) {
+        xAxisData.push(res.nitrous[i].date);
+        data.push(res.nitrous[i].average);
       }
-    this.options = {
-      legend: {
-        data: ['Cycle'],
-        align: 'left',
-      },
-      tooltip: {},
+      this.options = {
+        legend: {
+          data: ['Average'],
+          align:'left',
+        },
+        tooltip: {},
       xAxis: {
         data: xAxisData,
         silent: false,
@@ -44,13 +44,15 @@ export class Co2ChartComponent implements OnInit{
       yAxis: {},
       series: [
         {
-          name: 'Cycle',
+          name: 'Average',
           type: 'line',
           data: data,
+          animationDelay: idx => idx * 10,
         },
       ],
       animationEasing: 'elasticOut',
-    };
-    });
-  };
+      animationDelayUpdate: idx => idx * 10,
+      }
+    })
+  }
 }

@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
   
-
   constructor( private http: HttpClient) { }
 
   baseUrl = 'https://global-warming.org/api';
@@ -21,6 +20,15 @@ export class ApiService {
   };
 
   getMethane(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/methane-api`)
+    return this.http.get<any>(`${this.baseUrl}/methane-api`);
+  };
+
+  getNo2(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/nitrous-oxide-api`);
+  };
+
+  getArctic(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/arctic-api`);
   }
+  
 }

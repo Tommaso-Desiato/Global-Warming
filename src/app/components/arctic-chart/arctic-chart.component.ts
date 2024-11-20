@@ -5,36 +5,42 @@ import { NgxEchartsDirective, provideEcharts} from "ngx-echarts";
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-temperature-chart',
+  selector: 'app-arctic-chart',
   standalone: true,
-  imports: [CommonModule, NgxEchartsDirective,],
-  templateUrl: './temperature-chart.component.html',
-  styleUrl: './temperature-chart.component.css',
+  imports: [CommonModule, NgxEchartsDirective],
+  templateUrl: './arctic-chart.component.html',
+  styleUrl: './arctic-chart.component.css',
   providers: [
     provideEcharts(),
   ]
+
 })
-export class TemperatureChartComponent implements OnInit {
+export class ArcticChartComponent implements OnInit{
   options!: EChartsOption;
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService.getTemperature().subscribe( res => {
+    this.apiService.getArctic().subscribe( res => {
       const xAxisData = [];
-      const data = [];
-      const data2 = [];
+      const value = [];
+      const anom = [];
       
       
-      for (let i = 0; i < res.result.length; i++) {
-        xAxisData.push(res.result[i].time);
-        data.push(res.result[i].land);
-        data2.push(res.result[i].station);
+      for (const key in res.arcticData.data) {
+        if (res.arcticData.data.hasOwnProperty(key)) {
+          const dataPoint = res.arcticData.data[key];
+          if (dataPoint.value !== -9999 && dataPoint.anom !== -9999) {
+            xAxisData.push(key);
+            value.push(dataPoint.value);
+            anom.push(dataPoint.anom);
+          }
+        }
       }
       
       this.options = {
         legend: {
-          data: ['Land', 'Station'],
+          data: ['Value', 'Anomaly'],
           align: 'left',
         },
         tooltip: {},
@@ -48,15 +54,15 @@ export class TemperatureChartComponent implements OnInit {
         yAxis: {},
         series: [
           {
-            name: 'Land',
+            name: 'Value',
             type: 'line',
-            data: data,
+            data: value,
             animationDelay: idx => idx * 10 + 100,
           },
           {
-            name: 'Station',
+            name: 'Anomaly',
             type: 'line',
-            data: data2,
+            data: anom,
             animationDelay: idx => idx * 10 + 100,
           },
         ],
@@ -65,4 +71,5 @@ export class TemperatureChartComponent implements OnInit {
       };
     });
   };
+
 }
