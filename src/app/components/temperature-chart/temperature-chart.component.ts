@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class TemperatureChartComponent implements OnInit {
-  options!: EChartsOption;
+  options: EChartsOption = {};
 
   constructor(private apiService: ApiService) {}
 
@@ -52,12 +52,14 @@ export class TemperatureChartComponent implements OnInit {
             type: 'line',
             data: data,
             animationDelay: idx => idx * 10 + 100,
+            animationDuration: 1000,
           },
           {
             name: 'Station',
             type: 'line',
             data: data2,
             animationDelay: idx => idx * 10 + 100,
+            animationDuration: 1000,
           },
         ],
         animationEasing: 'elasticOut',

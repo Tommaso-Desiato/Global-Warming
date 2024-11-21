@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class No2ChartComponent implements OnInit{
-  options!: EChartsOption;
+  options: EChartsOption = {};
 
   constructor(private apiService: ApiService) {}
 

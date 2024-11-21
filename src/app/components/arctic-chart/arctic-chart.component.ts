@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 
 })
 export class ArcticChartComponent implements OnInit{
-  options!: EChartsOption;
+  options: EChartsOption = {};
 
   constructor(private apiService: ApiService) {}
 
@@ -58,12 +58,14 @@ export class ArcticChartComponent implements OnInit{
             type: 'line',
             data: value,
             animationDelay: idx => idx * 10 + 100,
+            animationDuration: 1000,
           },
           {
             name: 'Anomaly',
             type: 'line',
             data: anom,
             animationDelay: idx => idx * 10 + 100,
+            animationDuration: 1000,
           },
         ],
         animationEasing: 'elasticOut',
