@@ -12,5 +12,6 @@ export const routes: Routes = [
   {path: 'co2-chart', component: Co2ChartComponent},
   {path: 'methane-chart', component: MethaneChartComponent},
   {path: 'no2-chart', component: No2ChartComponent},
-  {path: 'arctic-chart', component: ArcticChartComponent}
+  {path: 'arctic-chart', component: ArcticChartComponent},
+  {path: '**', redirectTo: '' }
 ];

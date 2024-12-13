@@ -16,11 +16,12 @@ export class MobileSidebarComponent {
   sidebarVisible: boolean = false;
 
   items: MenuItem[] = [
+    { label: 'Home', icon: 'pi pi-home', routerLink: ['']},
     { label: 'Temperature', icon: 'pi pi-chart-line', routerLink: 'temperature-chart'},
-      { label: 'CO2', icon: 'pi pi-chart-line', routerLink: 'co2-chart'},
-      { label: 'Methane', icon: 'pi pi-chart-line', routerLink: 'methane-chart'},
-      { label: 'NO2', icon: 'pi pi-chart-line', routerLink: 'no2-chart'},
-      { label: 'Arctic ice', icon: 'pi pi-chart-line', routerLink: 'arctic-chart'}
+    { label: 'CO2', icon: 'pi pi-chart-line', routerLink: 'co2-chart'},
+    { label: 'Methane', icon: 'pi pi-chart-line', routerLink: 'methane-chart'},
+    { label: 'NO2', icon: 'pi pi-chart-line', routerLink: 'no2-chart'},
+    { label: 'Arctic ice', icon: 'pi pi-chart-line', routerLink: 'arctic-chart'}
   ]
 
   toggleSidebar() : void {

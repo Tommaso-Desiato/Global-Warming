@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { TabMenuModule } from 'primeng/tabmenu'
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [TabMenuModule, RouterLink],
+  imports: [TabMenuModule, RouterLink,],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [
+      { label: 'Home', icon: 'pi pi-home', routerLink: '' },
       { label: 'Temperature', icon: 'pi pi-chart-line', route: 'temperature-chart'},
       { label: 'CO2', icon: 'pi pi-chart-line', route: 'co2-chart'},
       { label: 'Methane', icon: 'pi pi-chart-line', route: 'methane-chart'},
