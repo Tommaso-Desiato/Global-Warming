@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
-import { TabMenuModule } from 'primeng/tabmenu';
+import { PanelMenuModule } from 'primeng/panelmenu';
 
 @Component({
   selector: 'app-mobile-sidebar',
   standalone: true,
-  imports: [SidebarModule, ButtonModule, TabMenuModule],
+  imports: [SidebarModule, ButtonModule, PanelMenuModule],
   templateUrl: './mobile-sidebar.component.html',
   styleUrl: './mobile-sidebar.component.css'
 })
@@ -16,11 +16,11 @@ export class MobileSidebarComponent {
   sidebarVisible: boolean = false;
 
   items: MenuItem[] = [
-    { label: 'Temperature', icon: 'pi pi-chart-line', route: 'temperature-chart'},
-      { label: 'CO2', icon: 'pi pi-chart-line', route: 'co2-chart'},
-      { label: 'Methane', icon: 'pi pi-chart-line', route: 'methane-chart'},
-      { label: 'NO2', icon: 'pi pi-chart-line', route: 'no2-chart'},
-      { label: 'Arctic ice', icon: 'pi pi-chart-line', route: 'arctic-chart'}
+    { label: 'Temperature', icon: 'pi pi-chart-line', routerLink: 'temperature-chart'},
+      { label: 'CO2', icon: 'pi pi-chart-line', routerLink: 'co2-chart'},
+      { label: 'Methane', icon: 'pi pi-chart-line', routerLink: 'methane-chart'},
+      { label: 'NO2', icon: 'pi pi-chart-line', routerLink: 'no2-chart'},
+      { label: 'Arctic ice', icon: 'pi pi-chart-line', routerLink: 'arctic-chart'}
   ]
 
   toggleSidebar() : void {
