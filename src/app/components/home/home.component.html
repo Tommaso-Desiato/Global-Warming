@@ -1,4 +1,4 @@
-<div class="grid gap-2 mx-2">
+<div class="grid md:grid-cols-2 gap-2 md:gap-4 mx-2">
   <p-card header="Temperature">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed
@@ -8,7 +8,9 @@
     </p>
     <ng-template pTemplate="footer">
       <div class="flex justify-center">
-        <p-button label="Go to Chart"></p-button>
+        <a [routerLink]="['temperature-chart']" class="p-button font-bold"
+          >Go to chart</a
+        >
       </div>
     </ng-template>
   </p-card>
@@ -22,7 +24,9 @@
     </p>
     <ng-template pTemplate="footer">
       <div class="flex justify-center">
-        <p-button label="Go to Chart"></p-button>
+        <a [routerLink]="['co2-chart']" class="p-button font-bold"
+          >Go to chart</a
+        >
       </div>
     </ng-template>
   </p-card>
@@ -36,7 +40,9 @@
     </p>
     <ng-template pTemplate="footer">
       <div class="flex justify-center">
-        <p-button label="Go to Chart"></p-button>
+        <a [routerLink]="['methane-chart']" class="p-button font-bold"
+          >Go to chart</a
+        >
       </div>
     </ng-template>
   </p-card>
@@ -50,7 +56,9 @@
     </p>
     <ng-template pTemplate="footer">
       <div class="flex justify-center">
-        <p-button label="Go to Chart"></p-button>
+        <a [routerLink]="['no2-chart']" class="p-button font-bold"
+          >Go to chart</a
+        >
       </div>
     </ng-template>
   </p-card>
@@ -64,7 +72,9 @@
     </p>
     <ng-template pTemplate="footer">
       <div class="flex justify-center">
-        <p-button label="Go to Chart"></p-button>
+        <a [routerLink]="['arctic-chart']" class="p-button font-bold"
+          >Go to chart</a
+        >
       </div>
     </ng-template>
   </p-card>
