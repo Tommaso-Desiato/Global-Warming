@@ -11,6 +11,6 @@ import { MobileSidebarComponent } from "./components/mobile-sidebar/mobile-sideb
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'final-project';
+  title = 'Global-Warming';
   
 }
